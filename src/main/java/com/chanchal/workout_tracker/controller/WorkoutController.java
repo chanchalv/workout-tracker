@@ -11,6 +11,7 @@ import java.util.List;
 @CrossOrigin
 public class WorkoutController {
 
+
     private final WorkoutService service;
 
     public WorkoutController(WorkoutService service) {
