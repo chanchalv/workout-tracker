@@ -20,11 +20,15 @@ public class WorkoutController {
 
     //temporary
 
-    @GetMapping("/test")
-public String test() {
-    return "API Working";
-}
 
+@RestController
+public class HomeController {
+
+    @GetMapping("/")
+    public String home() {
+        return "Workout Tracker API is running 🚀";
+    }
+}
 
 
     @PostMapping
