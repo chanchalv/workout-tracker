@@ -9,6 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/workouts")
 @CrossOrigin
+
 public class WorkoutController {
 
 
@@ -17,19 +18,6 @@ public class WorkoutController {
     public WorkoutController(WorkoutService service) {
         this.service = service;
     }
-
-    //temporary
-
-
-@RestController
-public class HomeController {
-
-    @GetMapping("/")
-    public String home() {
-        return "Workout Tracker API is running 🚀";
-    }
-}
-
 
     @PostMapping
     public Workout addWorkout(@RequestBody Workout workout) {
