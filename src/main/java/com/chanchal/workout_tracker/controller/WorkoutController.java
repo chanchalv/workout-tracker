@@ -9,9 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/workouts")
 @CrossOrigin
-
 public class WorkoutController {
-
 
     private final WorkoutService service;
 
@@ -32,5 +30,10 @@ public class WorkoutController {
     @DeleteMapping("/{id}")
     public void deleteWorkout(@PathVariable Long id) {
         service.deleteWorkout(id);
+    }
+
+    @PutMapping("/{id}")
+    public Workout updateWorkout(@PathVariable Long id, @RequestBody Workout workout) {
+        return service.updateWorkout(id, workout);
     }
 }
