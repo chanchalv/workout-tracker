@@ -28,16 +28,15 @@ public class WorkoutService {
     }
 
     public Workout updateWorkout(Long id, Workout updatedWorkout) {
+        Workout existingWorkout = repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Workout not found"));
 
-    Workout existingWorkout = repository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Workout not found"));
+        existingWorkout.setWorkoutName(updatedWorkout.getWorkoutName());
+        existingWorkout.setDurationMinutes(updatedWorkout.getDurationMinutes());
+        existingWorkout.setCaloriesBurned(updatedWorkout.getCaloriesBurned());
+        existingWorkout.setWorkoutDate(updatedWorkout.getWorkoutDate());
+        existingWorkout.setNotes(updatedWorkout.getNotes());
 
-    existingWorkout.setWorkoutName(updatedWorkout.getWorkoutName());
-    existingWorkout.setDurationMinutes(updatedWorkout.getDurationMinutes());
-    existingWorkout.setCaloriesBurned(updatedWorkout.getCaloriesBurned());
-    existingWorkout.setWorkoutDate(updatedWorkout.getWorkoutDate());
-    existingWorkout.setNotes(updatedWorkout.getNotes());
-
-    return repository.save(existingWorkout);
-}
+        return repository.save(existingWorkout);
+    }
 }
